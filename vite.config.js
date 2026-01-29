@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-    base: '/dashcam-bingo/',
+    base: '/Dashcam-Bingo/',
     server: {
         host: true,
         allowedHosts: [
