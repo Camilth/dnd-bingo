@@ -31,6 +31,105 @@ export const BingoGridCss = css`
         box-sizing: border-box;
     }
 
+    .tile-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        min-height: 0;
+    }
+
+    .tooltip {
+        position: absolute;
+        bottom: calc(100% + 0.5rem);
+        background: rgba(15, 23, 42, 0.98);
+        color: #f1f5f9;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.4;
+        max-width: 250px;
+        min-width: 180px;
+        width: max-content;
+        text-align: center;
+        z-index: 1000;
+        pointer-events: none;
+        border: 1px solid rgba(59, 130, 246, 0.5);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        animation: tooltip-appear 0.2s ease;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    /* Positionering varianten */
+    .tooltip-left {
+        left: 0%;
+        transform: translateX(0%) translateY(0);
+    }
+
+    .tooltip-left::after {
+        left: 20%;
+    }
+
+    .tooltip-left-center {
+        left: 50%;
+        transform: translateX(-25%) translateY(0);
+    }
+
+    .tooltip-left-center::after {
+        left: 35%;
+    }
+
+    .tooltip-center {
+        left: 50%;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .tooltip-center::after {
+        left: 50%;
+    }
+
+    .tooltip-right-center {
+        left: 50%;
+        transform: translateX(-75%) translateY(0);
+    }
+
+    .tooltip-right-center::after {
+        left: 65%;
+    }
+
+    .tooltip-right {
+        right: 0%;
+        left: auto;
+        transform: translateX(0%) translateY(0);
+    }
+
+    .tooltip-right::after {
+        left: 80%;
+    }
+
+    @keyframes tooltip-appear {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Pijltje onder tooltip */
+    .tooltip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        transform: translateX(-50%);
+        border: 0.5rem solid transparent;
+        border-top-color: rgba(15, 23, 42, 0.98);
+    }
+
     .tile {
         all: unset;
         display: flex;
@@ -49,8 +148,8 @@ export const BingoGridCss = css`
         color: var(--foreground);
         overflow: hidden;
         box-sizing: border-box;
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
         min-width: 0;
         min-height: 0;
 
@@ -203,6 +302,17 @@ export const BingoGridCss = css`
             line-height: 1.1;
             padding: 0.1rem;
         }
+
+        .tooltip {
+            max-width: 200px;
+            min-width: 150px;
+            font-size: 0.8125rem;
+            padding: 0.625rem 0.875rem;
+        }
+
+        .tooltip::after {
+            border-width: 0.4rem;
+        }
     }
 
     @media (max-width: 400px) {
@@ -234,6 +344,17 @@ export const BingoGridCss = css`
         .checkmark svg {
             width: 0.5rem;
             height: 0.5rem;
+        }
+
+        .tooltip {
+            max-width: 180px;
+            min-width: 130px;
+            font-size: 0.75rem;
+            padding: 0.5rem 0.75rem;
+        }
+
+        .tooltip::after {
+            border-width: 0.375rem;
         }
     }
 `;
