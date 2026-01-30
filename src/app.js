@@ -5,6 +5,8 @@ import './reset-button/ResetButton.js';
 import './confirmation-modal/ConfirmationModal.js';
 import './winner-modal/WinnerModal.js';
 import './sound-toggle/SoundToggle.js';
+import './help-menu/HelpButton.js';
+import './help-menu/HelpModal.js';
 
 class DashcamApp extends LitElement {
     static styles = css`
@@ -16,7 +18,7 @@ class DashcamApp extends LitElement {
             justify-content: center;
             width: 100%;
             height: 100vh;
-            height: 100dvh; /* Dynamic viewport height for mobile */
+            height: 100dvh;
             background: #0f172a;
             overflow: hidden;
             box-sizing: border-box;
@@ -27,15 +29,36 @@ class DashcamApp extends LitElement {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
+        }
+
+        .title-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         h1 {
             text-align: center;
-            color: #f1f5f9;
             margin: 0;
             flex-shrink: 0;
-            font-size: 2rem;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            letter-spacing: -0.025em;
+        }
+
+        .title-underline {
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg,
+            transparent 0%,
+            #3b82f6 50%,
+            transparent 100%
+            );
+            border-radius: 2px;
         }
 
         .game-container {
@@ -51,11 +74,16 @@ class DashcamApp extends LitElement {
             }
 
             .content-wrapper {
-                gap: 0.75rem;
+                gap: 1rem;
             }
 
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
+            }
+
+            .title-underline {
+                width: 100px;
+                height: 2.5px;
             }
 
             .game-container {
@@ -69,11 +97,16 @@ class DashcamApp extends LitElement {
             }
 
             .content-wrapper {
-                gap: 0.5rem;
+                gap: 0.75rem;
             }
 
             h1 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
+            }
+
+            .title-underline {
+                width: 80px;
+                height: 2px;
             }
 
             .game-container {
@@ -86,7 +119,8 @@ class DashcamApp extends LitElement {
         gameStarted: { type: Boolean },
         difficulty: { type: String },
         showConfirmation: { type: Boolean },
-        showWinner: { type: Boolean }
+        showWinner: { type: Boolean },
+        showHelp: { type: Boolean }
     };
 
     constructor() {
@@ -95,11 +129,11 @@ class DashcamApp extends LitElement {
         this.difficulty = '';
         this.showConfirmation = false;
         this.showWinner = false;
+        this.showHelp = false;
     }
 
     connectedCallback() {
         super.connectedCallback();
-        // Prevent scrolling on body
         document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
         document.body.style.margin = '0';
@@ -110,7 +144,6 @@ class DashcamApp extends LitElement {
 
     disconnectedCallback() {
         super.disconnectedCallback();
-        // Restore scrolling when component is removed
         document.body.style.overflow = '';
         document.documentElement.style.overflow = '';
     }
@@ -148,6 +181,14 @@ class DashcamApp extends LitElement {
         this.resetGame();
     }
 
+    handleHelpOpen() {
+        this.showHelp = true;
+    }
+
+    handleHelpClose() {
+        this.showHelp = false;
+    }
+
     resetGame() {
         this.gameStarted = false;
         this.difficulty = '';
@@ -156,9 +197,13 @@ class DashcamApp extends LitElement {
 
     render() {
         return html`
+            <help-button @help-requested=${this.handleHelpOpen}></help-button>
             <sound-toggle></sound-toggle>
             <div class="content-wrapper">
-                <h1>🚗 Dashcam Bingo</h1>
+                <div class="title-container">
+                    <h1>Dashcam Bingo</h1>
+                    <div class="title-underline"></div>
+                </div>
 
                 <div class="game-container">
                     <bingo-grid
@@ -176,6 +221,11 @@ class DashcamApp extends LitElement {
                         @difficulty-selected=${this.handleDifficultySelect}>
                 </difficulty-selector>
             ` : ''}
+
+            <help-modal
+                    .open=${this.showHelp}
+                    @close=${this.handleHelpClose}>
+            </help-modal>
 
             <confirmation-modal
                     ?open=${this.showConfirmation}
