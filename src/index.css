@@ -32,6 +32,7 @@ body {
   overflow: hidden;
   position: fixed;
   overscroll-behavior: none;
+  background: rgb(15, 23, 42);
 
   -webkit-overflow-scrolling: touch;
 }
