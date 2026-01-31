@@ -18,8 +18,9 @@ class HelpModal extends LitElement {
         this.currentPage = 0;
         this.pages = [
             'intro',
-            'rules',
             'what-are-dashcams',
+            'rules',
+            'how-to-play',
             'where-to-find'
         ];
         this.touchStartX = 0;
@@ -90,7 +91,15 @@ class HelpModal extends LitElement {
                 return html`
                     <section>
                         <h3>Het doel</h3>
-                        <p>Spot situaties tijdens het kijken van een dashcam video en vink ze af op je bingo kaart. Speel alleen of samen met vrienden/familie en probeer als eerste een volledige rij te maken!</p>
+                        <p>Spot situaties tijdens het kijken van een dashcam video en vink ze af op je bingo kaart. Speel alleen of samen met vrienden/familie en probeer als eerste <strong>BINGO</strong> te krijgen!</p>
+                    </section>
+                `;
+
+            case 'what-are-dashcams':
+                return html`
+                    <section>
+                        <h3>Wat zijn dashcam videos?</h3>
+                        <p>Veel mensen gebruiken tijdens het rijden een dashcam. Hiermee kunnen opvallende situaties op beeld worden gebracht. Op YouTube zijn videos waar deze dashcam videos in een compilatie worden gezet.</p>
                     </section>
                 `;
 
@@ -114,11 +123,14 @@ class HelpModal extends LitElement {
                     </section>
                 `;
 
-            case 'what-are-dashcams':
+            case 'how-to-play':
                 return html`
                     <section>
-                        <h3>Wat zijn dashcam videos?</h3>
-                        <p>Veel mensen gebruiken tijdens het rijden een dashcam. Hiermee kunnen opvallende situaties op beeld worden gebracht. Op YouTube zijn videos waar deze dashcam videos in een compilatie worden gezet.</p>
+                        <h3>Hoe gebruik ik deze app?</h3>
+                        <p>- Klik op een vakje om hem af te vinken.</p> 
+                        <p>- Houd een vakje ingedrukt om een beschrijving te zien over wat er in het vakje staat.</p> 
+                        <p>- Druk op "Probeer Opnieuw" om de bingokaart leeg te maken en een nieuwe te genereren.</p>
+                        <p>- Druk rechtsboven in de pagina op het geluidsicoontje om de geluidseffecten van de applicatie aan of uit te zetten.</p>
                     </section>
                 `;
 
