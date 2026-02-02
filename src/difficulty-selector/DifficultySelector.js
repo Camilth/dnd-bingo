@@ -35,7 +35,7 @@ class DifficultySelector extends LitElement {
     render() {
         return html`
             <div class="backdrop">
-                <div class="modal">
+                <div class="modal" data-nosnippet>
                     <h1>Welkom bij Dashcam Bingo</h1>
                     
                     <h2 class="subtitle">Kies je moeilijkheidsgraad en streep verkeersgekte af</h2>
