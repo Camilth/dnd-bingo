@@ -4,22 +4,22 @@
 
     <!-- Homepage / Main App -->
     <url>
-        <loc>https://skittlez-studios.github.io/Dashcam-Bingo/</loc>
+        <loc>https://dashcam-bingo.nl/</loc>
         <lastmod>2026-02-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="nl" href="https://skittlez-studios.github.io/Dashcam-Bingo/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://skittlez-studios.github.io/Dashcam-Bingo/"/>
+        <xhtml:link rel="alternate" hreflang="nl" href="https://dashcam-bingo.nl/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dashcam-bingo.nl/"/>
     </url>
 
     <!-- Privacy Policy -->
     <url>
-        <loc>https://skittlez-studios.github.io/Dashcam-Bingo/privacy.html</loc>
+        <loc>https://dashcam-bingo.nl/privacy.html</loc>
         <lastmod>2026-01-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
-        <xhtml:link rel="alternate" hreflang="nl" href="https://skittlez-studios.github.io/Dashcam-Bingo/privacy.html"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://skittlez-studios.github.io/Dashcam-Bingo/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="nl" href="https://dashcam-bingo.nl/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://dashcam-bingo.nl/privacy.html"/>
     </url>
 
 </urlset>

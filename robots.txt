@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://skittlez-studios.github.io/Dashcam-Bingo/sitemap.xml
+Sitemap: https://dashcam-bingo.nl/sitemap.xml
