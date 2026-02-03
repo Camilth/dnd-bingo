@@ -8,7 +8,7 @@ import './sound-toggle/SoundToggle.js';
 import './help-menu/HelpButton.js';
 import './help-menu/HelpModal.js';
 
-class DashcamApp extends LitElement {
+class DndApp extends LitElement {
     static styles = css`
         :host {
             display: flex;
@@ -201,7 +201,7 @@ class DashcamApp extends LitElement {
             <sound-toggle></sound-toggle>
             <div class="content-wrapper">
                 <div class="title-container">
-                    <h1>Dashcam Bingo</h1>
+                    <h1>DnD Bingo</h1>
                     <div class="title-underline"></div>
                 </div>
 
@@ -242,4 +242,4 @@ class DashcamApp extends LitElement {
     }
 }
 
-customElements.define('dashcam-app', DashcamApp);
+customElements.define('dnd-app', DndApp);

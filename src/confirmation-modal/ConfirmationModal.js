@@ -55,8 +55,8 @@ class ConfirmationModal extends LitElement {
         return html`
       <div class="backdrop" @click=${this.handleBackdropClick}>
         <div class="modal">
-          <h3>Weet je het zeker?</h3>
-          <p>Je huidige voortgang gaat verloren en het spel wordt gereset.</p>
+          <h3>Are you sure?</h3>
+          <p>Your current progress will be lost and the game will reset.</p>
           
           <div class="buttons">
             <button 
@@ -67,7 +67,7 @@ class ConfirmationModal extends LitElement {
                 @touchmove=${this.handleTouchEnd}
                 @contextmenu=${(e) => e.preventDefault()}
             >
-                Nee, annuleren
+                No, cancel
             </button>
             <button 
                 class="btn btn-confirm touch-interactive ${this.pressingButton === 'confirm' ? 'pressing' : ''}"
@@ -77,7 +77,7 @@ class ConfirmationModal extends LitElement {
                 @touchmove=${this.handleTouchEnd}
                 @contextmenu=${(e) => e.preventDefault()}
             >
-                Ja, opnieuw beginnen
+                Yes, start over
             </button>
           </div>
         </div>

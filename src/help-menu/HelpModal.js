@@ -18,9 +18,7 @@ class HelpModal extends LitElement {
         this.currentPage = 0;
         this.pages = [
             'intro',
-            'what-are-dashcams',
             'rules',
-            'where-to-find'
         ];
         this.touchStartX = 0;
         this.touchEndX = 0;
@@ -89,87 +87,31 @@ class HelpModal extends LitElement {
             case 'intro':
                 return html`
                     <section>
-                        <h3>Wat is Dashcam Bingo?</h3>
-                        <p>Het is de bedoeling dat Dashcam Bingo gespeeld wordt tijdens het kijken van Dashcam videos. Het doel is om zo snel mogelijk <strong>Bingo</strong> te krijgen.</p>
+                        <h3>What is DnD Bingo?</h3>
+                        <p>DnD Bingo is supposed to be played while in a DnD session.</p>
                         <br>
-                        <p>Bingo behaal je door goed op te letten tijdens een dashcam video. Je start met een bingo kaart vol met allemaal verkeersacties, als je tijdens het kijken een van die acties plaats ziet nemen vink je dat vakje af.</p>
+                        <p>Pay attention during your DnD session and cross events off your bingo card.</p>
                         <br>
-                        <p>Voordat je begint kies je een moeilijkheidsgraad, als alle vakjes van je bijbehorende moeilijkheidsgraag hebt afgevinkt heb je <strong>Bingo</strong>.</p>
-                        <br>
-                        <p>Dashcam Bingo speel je het beste samen.</p>
-                    </section>
-                `;
-
-            case 'what-are-dashcams':
-                return html`
-                    <section>
-                        <h3>Wat zijn dashcam videos?</h3>
-                        <p>Dashcam video’s zijn beelden die zijn opgenomen met een kleine camera die achter de voorruit (of soms achterruit) van een auto is gemonteerd.</p>
-                        <br>
-                        <p>De dashcam begint automatisch met filmen zodra de auto start. De camera slaat beelden op in korte fragmenten. Wanneer een gebruiker een moment handmatig markeert — of wanneer de camera zelf een botsing detecteert — wordt dit fragment beveiligd opgeslagen zodat het later teruggekeken kan worden.</p>
-                        <br>
-                        <p>Veel van deze beelden belanden online in zogenaamde compilatievideo's. Dit gebeurt vaak om asociaal weggedrag aan de kaak te stellen of puur ter vermaak.</p>
+                        <p>When you get <strong>Bingo</strong> you win.</p>
                     </section>
                 `;
 
             case 'rules':
                 return html`
                     <section>
-                        <h3>Spelregels</h3>
+                        <h3>Rules</h3>
                         <ol>
-                            <li><strong>Kies je moeilijkheidsgraad:</strong>
+                            <li><strong>Choose your difficulty:</strong>
                                 <ul>
-                                    <li><span class="badge green">I</span> Enkele Rij - 1 rij om bingo te halen</li>
-                                    <li><span class="badge orange">II</span> Dubbele Rij - 2 rijen om bingo te halen</li>
-                                    <li><span class="badge red">III</span> Volle Kaart - Alle vakjes om bingo te halen</li>
+                                    <li><span class="badge green">I</span> Single Row - 1 row to get bingo</li>
+                                    <li><span class="badge orange">II</span> Double Row - 2 rows to get bingo</li>
+                                    <li><span class="badge red">III</span> Full Card - All boxes to get bingo</li>
                                 </ul>
                             </li>
-                            <li><strong>Start een dashcam video</strong> op een ander scherm</li>
-                            <li><strong>Vink de verkeersacties af</strong> van jouw bingokaart</li>
-                            <li><strong>Bingo!</strong> wanneer je het doel hebt gehaald</li>
+                            <li><strong>Start a DnD session</li>
+                            <li><strong>Pay attention and cross off events from your card</li>
+                            <li><strong>Bingo!</strong> when you reach your difficulty goal</li>
                         </ol>
-                    </section>
-                `;
-
-            case 'where-to-find':
-                return html`
-                    <section>
-                        <h3>Waar vind ik dashcam videos?</h3>
-                        <p>Zoek op YouTube naar "dashcam videos" of "dashcam compilatie", of kijk een video van een van de kanalen hieronder:</p>
-                        <ul class="link-list">
-                            <li>
-                                <a href="https://www.youtube.com/@Dashcam-Nederland" target="_blank" rel="noopener noreferrer">
-                                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                                    </svg>
-                                    Dashcam Nederland
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/@DutchDashcam" target="_blank" rel="noopener noreferrer">
-                                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                                    </svg>
-                                    Dutch Dashcam
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/playlist?list=PLMe_6SSHyqcY0-mRCiQseShc4uY3KPPYt" target="_blank" rel="noopener noreferrer">
-                                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                                    </svg>
-                                    Dumpert Dashcam Playlist
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/@DASHCAMIDIOTSNEDERLAND/featured" target="_blank" rel="noopener noreferrer">
-                                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                                    </svg>
-                                    Dashcam Idiots Nederland
-                                </a>
-                            </li>
-                        </ul>
                     </section>
                 `;
         }
@@ -193,7 +135,7 @@ class HelpModal extends LitElement {
                         </svg>
                     </div>
 
-                    <h2>Uitleg Dashcam Bingo</h2>
+                    <h2>DnD Bingo explained</h2>
 
                     <div 
                         class="content"
@@ -208,7 +150,7 @@ class HelpModal extends LitElement {
                             class="nav-btn" 
                             @click=${this.prevPage}
                             ?disabled=${this.currentPage === 0}
-                            aria-label="Vorige pagina"
+                            aria-label="Previous page"
                         >
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -225,7 +167,7 @@ class HelpModal extends LitElement {
                             class="nav-btn" 
                             @click=${this.nextPage}
                             ?disabled=${this.currentPage === this.pages.length - 1}
-                            aria-label="Volgende pagina"
+                            aria-label="Next page"
                         >
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -234,7 +176,7 @@ class HelpModal extends LitElement {
                     </div>
 
                     <button class="btn-close-bottom" @click=${this.handleClose}>
-                        Begrepen, laten we spelen!
+                        Understood, let's play!
                     </button>
                 </div>
             </div>

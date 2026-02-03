@@ -36,9 +36,9 @@ class DifficultySelector extends LitElement {
         return html`
             <div class="backdrop">
                 <div class="modal" data-nosnippet>
-                    <h1>Welkom bij Dashcam Bingo</h1>
+                    <h1>Welcome to DnD Bingo</h1>
                     
-                    <h2 class="subtitle">Kies je moeilijkheidsgraad en streep verkeersgekte af</h2>
+                    <h2 class="subtitle">Choose your difficulty to start the game</h2>
 
                     <div class="buttons">
                         <button
@@ -68,8 +68,8 @@ class DifficultySelector extends LitElement {
                                     <circle cx="22" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                 </svg>
                             </div>
-                            <span class="title">Enkele Rij</span>
-                            <span class="description">Win door 1 rij horizontaal, verticaal of diagonaal helemaal af te vinken</span>
+                            <span class="title">Single Row</span>
+                            <span class="description">Win by ticking off 1 row horizontally, vertically or diagonally</span>
                         </button>
 
                         <button
@@ -99,8 +99,8 @@ class DifficultySelector extends LitElement {
                                     <circle cx="22" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                 </svg>
                             </div>
-                            <span class="title">Dubbele Rij</span>
-                            <span class="description">Win door 2 rijen horizontaal, verticaal of diagonaal helemaal af te vinken</span>
+                            <span class="title">Double Row</span>
+                            <span class="description">Win by ticking off 2 rows horizontally, vertically or diagonally</span>
                         </button>
 
                         <button
@@ -128,8 +128,8 @@ class DifficultySelector extends LitElement {
                                     <circle cx="22" cy="22" r="2.5" fill="white"/>
                                 </svg>
                             </div>
-                            <span class="title">Volle Kaart</span>
-                            <span class="description">Win door alle vakjes op de kaart af te vinken</span>
+                            <span class="title">Full Card</span>
+                            <span class="description">Win by checking off all the boxes on the card</span>
                         </button>
                     </div>
                 </div>
