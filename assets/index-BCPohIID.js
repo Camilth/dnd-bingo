@@ -1,6 +1,6 @@
-(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const n of i)if(n.type==="childList")for(const s of n.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&r(s)}).observe(document,{childList:!0,subtree:!0});function t(i){const n={};return i.integrity&&(n.integrity=i.integrity),i.referrerPolicy&&(n.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?n.credentials="include":i.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function r(i){if(i.ep)return;i.ep=!0;const n=t(i);fetch(i.href,n)}})();const B=globalThis,L=B.ShadowRoot&&(B.ShadyCSS===void 0||B.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,N=Symbol(),q=new WeakMap;let ie=class{constructor(e,t,r){if(this._$cssResult$=!0,r!==N)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let e=this.o;const t=this.t;if(L&&e===void 0){const r=t!==void 0&&t.length===1;r&&(e=q.get(t)),e===void 0&&((this.o=e=new CSSStyleSheet).replaceSync(this.cssText),r&&q.set(t,e))}return e}toString(){return this.cssText}};const ce=o=>new ie(typeof o=="string"?o:o+"",void 0,N),v=(o,...e)=>{const t=o.length===1?o[0]:e.reduce((r,i,n)=>r+(s=>{if(s._$cssResult$===!0)return s.cssText;if(typeof s=="number")return s;throw Error("Value passed to 'css' function must be a 'css' function result: "+s+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(i)+o[n+1],o[0]);return new ie(t,o,N)},de=(o,e)=>{if(L)o.adoptedStyleSheets=e.map(t=>t instanceof CSSStyleSheet?t:t.styleSheet);else for(const t of e){const r=document.createElement("style"),i=B.litNonce;i!==void 0&&r.setAttribute("nonce",i),r.textContent=t.cssText,o.appendChild(r)}},V=L?o=>o:o=>o instanceof CSSStyleSheet?(e=>{let t="";for(const r of e.cssRules)t+=r.cssText;return ce(t)})(o):o;const{is:he,defineProperty:ue,getOwnPropertyDescriptor:pe,getOwnPropertyNames:me,getOwnPropertySymbols:ge,getPrototypeOf:fe}=Object,H=globalThis,X=H.trustedTypes,be=X?X.emptyScript:"",ve=H.reactiveElementPolyfillSupport,C=(o,e)=>o,U={toAttribute(o,e){switch(e){case Boolean:o=o?be:null;break;case Object:case Array:o=o==null?o:JSON.stringify(o)}return o},fromAttribute(o,e){let t=o;switch(e){case Boolean:t=o!==null;break;case Number:t=o===null?null:Number(o);break;case Object:case Array:try{t=JSON.parse(o)}catch{t=null}}return t}},ne=(o,e)=>!he(o,e),G={attribute:!0,type:String,converter:U,reflect:!1,useDefault:!1,hasChanged:ne};Symbol.metadata??=Symbol("metadata"),H.litPropertyMetadata??=new WeakMap;let E=class extends HTMLElement{static addInitializer(e){this._$Ei(),(this.l??=[]).push(e)}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(e,t=G){if(t.state&&(t.attribute=!1),this._$Ei(),this.prototype.hasOwnProperty(e)&&((t=Object.create(t)).wrapped=!0),this.elementProperties.set(e,t),!t.noAccessor){const r=Symbol(),i=this.getPropertyDescriptor(e,r,t);i!==void 0&&ue(this.prototype,e,i)}}static getPropertyDescriptor(e,t,r){const{get:i,set:n}=pe(this.prototype,e)??{get(){return this[t]},set(s){this[t]=s}};return{get:i,set(s){const l=i?.call(this);n?.call(this,s),this.requestUpdate(e,l,r)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this.elementProperties.get(e)??G}static _$Ei(){if(this.hasOwnProperty(C("elementProperties")))return;const e=fe(this);e.finalize(),e.l!==void 0&&(this.l=[...e.l]),this.elementProperties=new Map(e.elementProperties)}static finalize(){if(this.hasOwnProperty(C("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(C("properties"))){const t=this.properties,r=[...me(t),...ge(t)];for(const i of r)this.createProperty(i,t[i])}const e=this[Symbol.metadata];if(e!==null){const t=litPropertyMetadata.get(e);if(t!==void 0)for(const[r,i]of t)this.elementProperties.set(r,i)}this._$Eh=new Map;for(const[t,r]of this.elementProperties){const i=this._$Eu(t,r);i!==void 0&&this._$Eh.set(i,t)}this.elementStyles=this.finalizeStyles(this.styles)}static finalizeStyles(e){const t=[];if(Array.isArray(e)){const r=new Set(e.flat(1/0).reverse());for(const i of r)t.unshift(V(i))}else e!==void 0&&t.push(V(e));return t}static _$Eu(e,t){const r=t.attribute;return r===!1?void 0:typeof r=="string"?r:typeof e=="string"?e.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev()}_$Ev(){this._$ES=new Promise(e=>this.enableUpdating=e),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach(e=>e(this))}addController(e){(this._$EO??=new Set).add(e),this.renderRoot!==void 0&&this.isConnected&&e.hostConnected?.()}removeController(e){this._$EO?.delete(e)}_$E_(){const e=new Map,t=this.constructor.elementProperties;for(const r of t.keys())this.hasOwnProperty(r)&&(e.set(r,this[r]),delete this[r]);e.size>0&&(this._$Ep=e)}createRenderRoot(){const e=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return de(e,this.constructor.elementStyles),e}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$EO?.forEach(e=>e.hostConnected?.())}enableUpdating(e){}disconnectedCallback(){this._$EO?.forEach(e=>e.hostDisconnected?.())}attributeChangedCallback(e,t,r){this._$AK(e,r)}_$ET(e,t){const r=this.constructor.elementProperties.get(e),i=this.constructor._$Eu(e,r);if(i!==void 0&&r.reflect===!0){const n=(r.converter?.toAttribute!==void 0?r.converter:U).toAttribute(t,r.type);this._$Em=e,n==null?this.removeAttribute(i):this.setAttribute(i,n),this._$Em=null}}_$AK(e,t){const r=this.constructor,i=r._$Eh.get(e);if(i!==void 0&&this._$Em!==i){const n=r.getPropertyOptions(i),s=typeof n.converter=="function"?{fromAttribute:n.converter}:n.converter?.fromAttribute!==void 0?n.converter:U;this._$Em=i;const l=s.fromAttribute(t,n.type);this[i]=l??this._$Ej?.get(i)??l,this._$Em=null}}requestUpdate(e,t,r,i=!1,n){if(e!==void 0){const s=this.constructor;if(i===!1&&(n=this[e]),r??=s.getPropertyOptions(e),!((r.hasChanged??ne)(n,t)||r.useDefault&&r.reflect&&n===this._$Ej?.get(e)&&!this.hasAttribute(s._$Eu(e,r))))return;this.C(e,t,r)}this.isUpdatePending===!1&&(this._$ES=this._$EP())}C(e,t,{useDefault:r,reflect:i,wrapped:n},s){r&&!(this._$Ej??=new Map).has(e)&&(this._$Ej.set(e,s??t??this[e]),n!==!0||s!==void 0)||(this._$AL.has(e)||(this.hasUpdated||r||(t=void 0),this._$AL.set(e,t)),i===!0&&this._$Em!==e&&(this._$Eq??=new Set).add(e))}async _$EP(){this.isUpdatePending=!0;try{await this._$ES}catch(t){Promise.reject(t)}const e=this.scheduleUpdate();return e!=null&&await e,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this.renderRoot??=this.createRenderRoot(),this._$Ep){for(const[i,n]of this._$Ep)this[i]=n;this._$Ep=void 0}const r=this.constructor.elementProperties;if(r.size>0)for(const[i,n]of r){const{wrapped:s}=n,l=this[i];s!==!0||this._$AL.has(i)||l===void 0||this.C(i,void 0,n,l)}}let e=!1;const t=this._$AL;try{e=this.shouldUpdate(t),e?(this.willUpdate(t),this._$EO?.forEach(r=>r.hostUpdate?.()),this.update(t)):this._$EM()}catch(r){throw e=!1,this._$EM(),r}e&&this._$AE(t)}willUpdate(e){}_$AE(e){this._$EO?.forEach(t=>t.hostUpdated?.()),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(e)),this.updated(e)}_$EM(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$ES}shouldUpdate(e){return!0}update(e){this._$Eq&&=this._$Eq.forEach(t=>this._$ET(t,this[t])),this._$EM()}updated(e){}firstUpdated(e){}};E.elementStyles=[],E.shadowRootOptions={mode:"open"},E[C("elementProperties")]=new Map,E[C("finalized")]=new Map,ve?.({ReactiveElement:E}),(H.reactiveElementVersions??=[]).push("2.1.2");const I=globalThis,F=o=>o,M=I.trustedTypes,K=M?M.createPolicy("lit-html",{createHTML:o=>o}):void 0,oe="$lit$",w=`lit$${Math.random().toFixed(9).slice(2)}$`,se="?"+w,we=`<${se}>`,k=document,P=()=>k.createComment(""),T=o=>o===null||typeof o!="object"&&typeof o!="function",W=Array.isArray,ye=o=>W(o)||typeof o?.[Symbol.iterator]=="function",O=`[ 	
-\f\r]`,S=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,J=/-->/g,Z=/>/g,y=RegExp(`>|${O}(?:([^\\s"'>=/]+)(${O}*=${O}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`,"g"),Q=/'/g,ee=/"/g,ae=/^(?:script|style|textarea|title)$/i,xe=o=>(e,...t)=>({_$litType$:o,strings:e,values:t}),u=xe(1),_=Symbol.for("lit-noChange"),m=Symbol.for("lit-nothing"),te=new WeakMap,x=k.createTreeWalker(k,129);function le(o,e){if(!W(o)||!o.hasOwnProperty("raw"))throw Error("invalid template strings array");return K!==void 0?K.createHTML(e):e}const ke=(o,e)=>{const t=o.length-1,r=[];let i,n=e===2?"<svg>":e===3?"<math>":"",s=S;for(let l=0;l<t;l++){const d=o[l];let c,h,a=-1,p=0;for(;p<d.length&&(s.lastIndex=p,h=s.exec(d),h!==null);)p=s.lastIndex,s===S?h[1]==="!--"?s=J:h[1]!==void 0?s=Z:h[2]!==void 0?(ae.test(h[2])&&(i=RegExp("</"+h[2],"g")),s=y):h[3]!==void 0&&(s=y):s===y?h[0]===">"?(s=i??S,a=-1):h[1]===void 0?a=-2:(a=s.lastIndex-h[2].length,c=h[1],s=h[3]===void 0?y:h[3]==='"'?ee:Q):s===ee||s===Q?s=y:s===J||s===Z?s=S:(s=y,i=void 0);const b=s===y&&o[l+1].startsWith("/>")?" ":"";n+=s===S?d+we:a>=0?(r.push(c),d.slice(0,a)+oe+d.slice(a)+w+b):d+w+(a===-2?l:b)}return[le(o,n+(o[t]||"<?>")+(e===2?"</svg>":e===3?"</math>":"")),r]};class j{constructor({strings:e,_$litType$:t},r){let i;this.parts=[];let n=0,s=0;const l=e.length-1,d=this.parts,[c,h]=ke(e,t);if(this.el=j.createElement(c,r),x.currentNode=this.el.content,t===2||t===3){const a=this.el.content.firstChild;a.replaceWith(...a.childNodes)}for(;(i=x.nextNode())!==null&&d.length<l;){if(i.nodeType===1){if(i.hasAttributes())for(const a of i.getAttributeNames())if(a.endsWith(oe)){const p=h[s++],b=i.getAttribute(a).split(w),$=/([.?@])?(.*)/.exec(p);d.push({type:1,index:n,name:$[2],strings:b,ctor:$[1]==="."?Ee:$[1]==="?"?_e:$[1]==="@"?Ae:R}),i.removeAttribute(a)}else a.startsWith(w)&&(d.push({type:6,index:n}),i.removeAttribute(a));if(ae.test(i.tagName)){const a=i.textContent.split(w),p=a.length-1;if(p>0){i.textContent=M?M.emptyScript:"";for(let b=0;b<p;b++)i.append(a[b],P()),x.nextNode(),d.push({type:2,index:++n});i.append(a[p],P())}}}else if(i.nodeType===8)if(i.data===se)d.push({type:2,index:n});else{let a=-1;for(;(a=i.data.indexOf(w,a+1))!==-1;)d.push({type:7,index:n}),a+=w.length-1}n++}}static createElement(e,t){const r=k.createElement("template");return r.innerHTML=e,r}}function A(o,e,t=o,r){if(e===_)return e;let i=r!==void 0?t._$Co?.[r]:t._$Cl;const n=T(e)?void 0:e._$litDirective$;return i?.constructor!==n&&(i?._$AO?.(!1),n===void 0?i=void 0:(i=new n(o),i._$AT(o,t,r)),r!==void 0?(t._$Co??=[])[r]=i:t._$Cl=i),i!==void 0&&(e=A(o,i._$AS(o,e.values),i,r)),e}class $e{constructor(e,t){this._$AV=[],this._$AN=void 0,this._$AD=e,this._$AM=t}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(e){const{el:{content:t},parts:r}=this._$AD,i=(e?.creationScope??k).importNode(t,!0);x.currentNode=i;let n=x.nextNode(),s=0,l=0,d=r[0];for(;d!==void 0;){if(s===d.index){let c;d.type===2?c=new z(n,n.nextSibling,this,e):d.type===1?c=new d.ctor(n,d.name,d.strings,this,e):d.type===6&&(c=new Se(n,this,e)),this._$AV.push(c),d=r[++l]}s!==d?.index&&(n=x.nextNode(),s++)}return x.currentNode=k,i}p(e){let t=0;for(const r of this._$AV)r!==void 0&&(r.strings!==void 0?(r._$AI(e,r,t),t+=r.strings.length-2):r._$AI(e[t])),t++}}class z{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(e,t,r,i){this.type=2,this._$AH=m,this._$AN=void 0,this._$AA=e,this._$AB=t,this._$AM=r,this.options=i,this._$Cv=i?.isConnected??!0}get parentNode(){let e=this._$AA.parentNode;const t=this._$AM;return t!==void 0&&e?.nodeType===11&&(e=t.parentNode),e}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(e,t=this){e=A(this,e,t),T(e)?e===m||e==null||e===""?(this._$AH!==m&&this._$AR(),this._$AH=m):e!==this._$AH&&e!==_&&this._(e):e._$litType$!==void 0?this.$(e):e.nodeType!==void 0?this.T(e):ye(e)?this.k(e):this._(e)}O(e){return this._$AA.parentNode.insertBefore(e,this._$AB)}T(e){this._$AH!==e&&(this._$AR(),this._$AH=this.O(e))}_(e){this._$AH!==m&&T(this._$AH)?this._$AA.nextSibling.data=e:this.T(k.createTextNode(e)),this._$AH=e}$(e){const{values:t,_$litType$:r}=e,i=typeof r=="number"?this._$AC(e):(r.el===void 0&&(r.el=j.createElement(le(r.h,r.h[0]),this.options)),r);if(this._$AH?._$AD===i)this._$AH.p(t);else{const n=new $e(i,this),s=n.u(this.options);n.p(t),this.T(s),this._$AH=n}}_$AC(e){let t=te.get(e.strings);return t===void 0&&te.set(e.strings,t=new j(e)),t}k(e){W(this._$AH)||(this._$AH=[],this._$AR());const t=this._$AH;let r,i=0;for(const n of e)i===t.length?t.push(r=new z(this.O(P()),this.O(P()),this,this.options)):r=t[i],r._$AI(n),i++;i<t.length&&(this._$AR(r&&r._$AB.nextSibling,i),t.length=i)}_$AR(e=this._$AA.nextSibling,t){for(this._$AP?.(!1,!0,t);e!==this._$AB;){const r=F(e).nextSibling;F(e).remove(),e=r}}setConnected(e){this._$AM===void 0&&(this._$Cv=e,this._$AP?.(e))}}class R{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(e,t,r,i,n){this.type=1,this._$AH=m,this._$AN=void 0,this.element=e,this.name=t,this._$AM=i,this.options=n,r.length>2||r[0]!==""||r[1]!==""?(this._$AH=Array(r.length-1).fill(new String),this.strings=r):this._$AH=m}_$AI(e,t=this,r,i){const n=this.strings;let s=!1;if(n===void 0)e=A(this,e,t,0),s=!T(e)||e!==this._$AH&&e!==_,s&&(this._$AH=e);else{const l=e;let d,c;for(e=n[0],d=0;d<n.length-1;d++)c=A(this,l[r+d],t,d),c===_&&(c=this._$AH[d]),s||=!T(c)||c!==this._$AH[d],c===m?e=m:e!==m&&(e+=(c??"")+n[d+1]),this._$AH[d]=c}s&&!i&&this.j(e)}j(e){e===m?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,e??"")}}class Ee extends R{constructor(){super(...arguments),this.type=3}j(e){this.element[this.name]=e===m?void 0:e}}class _e extends R{constructor(){super(...arguments),this.type=4}j(e){this.element.toggleAttribute(this.name,!!e&&e!==m)}}class Ae extends R{constructor(e,t,r,i,n){super(e,t,r,i,n),this.type=5}_$AI(e,t=this){if((e=A(this,e,t,0)??m)===_)return;const r=this._$AH,i=e===m&&r!==m||e.capture!==r.capture||e.once!==r.once||e.passive!==r.passive,n=e!==m&&(r===m||i);i&&this.element.removeEventListener(this.name,this,r),n&&this.element.addEventListener(this.name,this,e),this._$AH=e}handleEvent(e){typeof this._$AH=="function"?this._$AH.call(this.options?.host??this.element,e):this._$AH.handleEvent(e)}}class Se{constructor(e,t,r){this.element=e,this.type=6,this._$AN=void 0,this._$AM=t,this.options=r}get _$AU(){return this._$AM._$AU}_$AI(e){A(this,e)}}const Ce=I.litHtmlPolyfillSupport;Ce?.(j,z),(I.litHtmlVersions??=[]).push("3.3.2");const Pe=(o,e,t)=>{const r=t?.renderBefore??e;let i=r._$litPart$;if(i===void 0){const n=t?.renderBefore??null;r._$litPart$=i=new z(e.insertBefore(P(),n),n,void 0,t??{})}return i._$AI(o),i};const Y=globalThis;class f extends E{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){const e=super.createRenderRoot();return this.renderOptions.renderBefore??=e.firstChild,e}update(e){const t=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(e),this._$Do=Pe(t,this.renderRoot,this.renderOptions)}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0)}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1)}render(){return _}}f._$litElement$=!0,f.finalized=!0,Y.litElementHydrateSupport?.({LitElement:f});const Te=Y.litElementPolyfillSupport;Te?.({LitElement:f});(Y.litElementVersions??=[]).push("4.2.2");const je=v`
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const o of i)if(o.type==="childList")for(const s of o.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&r(s)}).observe(document,{childList:!0,subtree:!0});function t(i){const o={};return i.integrity&&(o.integrity=i.integrity),i.referrerPolicy&&(o.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?o.credentials="include":i.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(i){if(i.ep)return;i.ep=!0;const o=t(i);fetch(i.href,o)}})();const M=globalThis,L=M.ShadowRoot&&(M.ShadyCSS===void 0||M.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,N=Symbol(),q=new WeakMap;let ie=class{constructor(e,t,r){if(this._$cssResult$=!0,r!==N)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let e=this.o;const t=this.t;if(L&&e===void 0){const r=t!==void 0&&t.length===1;r&&(e=q.get(t)),e===void 0&&((this.o=e=new CSSStyleSheet).replaceSync(this.cssText),r&&q.set(t,e))}return e}toString(){return this.cssText}};const ce=n=>new ie(typeof n=="string"?n:n+"",void 0,N),v=(n,...e)=>{const t=n.length===1?n[0]:e.reduce((r,i,o)=>r+(s=>{if(s._$cssResult$===!0)return s.cssText;if(typeof s=="number")return s;throw Error("Value passed to 'css' function must be a 'css' function result: "+s+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(i)+n[o+1],n[0]);return new ie(t,n,N)},de=(n,e)=>{if(L)n.adoptedStyleSheets=e.map(t=>t instanceof CSSStyleSheet?t:t.styleSheet);else for(const t of e){const r=document.createElement("style"),i=M.litNonce;i!==void 0&&r.setAttribute("nonce",i),r.textContent=t.cssText,n.appendChild(r)}},V=L?n=>n:n=>n instanceof CSSStyleSheet?(e=>{let t="";for(const r of e.cssRules)t+=r.cssText;return ce(t)})(n):n;const{is:he,defineProperty:ue,getOwnPropertyDescriptor:pe,getOwnPropertyNames:me,getOwnPropertySymbols:ge,getPrototypeOf:fe}=Object,H=globalThis,X=H.trustedTypes,be=X?X.emptyScript:"",ve=H.reactiveElementPolyfillSupport,C=(n,e)=>n,O={toAttribute(n,e){switch(e){case Boolean:n=n?be:null;break;case Object:case Array:n=n==null?n:JSON.stringify(n)}return n},fromAttribute(n,e){let t=n;switch(e){case Boolean:t=n!==null;break;case Number:t=n===null?null:Number(n);break;case Object:case Array:try{t=JSON.parse(n)}catch{t=null}}return t}},oe=(n,e)=>!he(n,e),G={attribute:!0,type:String,converter:O,reflect:!1,useDefault:!1,hasChanged:oe};Symbol.metadata??=Symbol("metadata"),H.litPropertyMetadata??=new WeakMap;let E=class extends HTMLElement{static addInitializer(e){this._$Ei(),(this.l??=[]).push(e)}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(e,t=G){if(t.state&&(t.attribute=!1),this._$Ei(),this.prototype.hasOwnProperty(e)&&((t=Object.create(t)).wrapped=!0),this.elementProperties.set(e,t),!t.noAccessor){const r=Symbol(),i=this.getPropertyDescriptor(e,r,t);i!==void 0&&ue(this.prototype,e,i)}}static getPropertyDescriptor(e,t,r){const{get:i,set:o}=pe(this.prototype,e)??{get(){return this[t]},set(s){this[t]=s}};return{get:i,set(s){const l=i?.call(this);o?.call(this,s),this.requestUpdate(e,l,r)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this.elementProperties.get(e)??G}static _$Ei(){if(this.hasOwnProperty(C("elementProperties")))return;const e=fe(this);e.finalize(),e.l!==void 0&&(this.l=[...e.l]),this.elementProperties=new Map(e.elementProperties)}static finalize(){if(this.hasOwnProperty(C("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(C("properties"))){const t=this.properties,r=[...me(t),...ge(t)];for(const i of r)this.createProperty(i,t[i])}const e=this[Symbol.metadata];if(e!==null){const t=litPropertyMetadata.get(e);if(t!==void 0)for(const[r,i]of t)this.elementProperties.set(r,i)}this._$Eh=new Map;for(const[t,r]of this.elementProperties){const i=this._$Eu(t,r);i!==void 0&&this._$Eh.set(i,t)}this.elementStyles=this.finalizeStyles(this.styles)}static finalizeStyles(e){const t=[];if(Array.isArray(e)){const r=new Set(e.flat(1/0).reverse());for(const i of r)t.unshift(V(i))}else e!==void 0&&t.push(V(e));return t}static _$Eu(e,t){const r=t.attribute;return r===!1?void 0:typeof r=="string"?r:typeof e=="string"?e.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev()}_$Ev(){this._$ES=new Promise(e=>this.enableUpdating=e),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach(e=>e(this))}addController(e){(this._$EO??=new Set).add(e),this.renderRoot!==void 0&&this.isConnected&&e.hostConnected?.()}removeController(e){this._$EO?.delete(e)}_$E_(){const e=new Map,t=this.constructor.elementProperties;for(const r of t.keys())this.hasOwnProperty(r)&&(e.set(r,this[r]),delete this[r]);e.size>0&&(this._$Ep=e)}createRenderRoot(){const e=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return de(e,this.constructor.elementStyles),e}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$EO?.forEach(e=>e.hostConnected?.())}enableUpdating(e){}disconnectedCallback(){this._$EO?.forEach(e=>e.hostDisconnected?.())}attributeChangedCallback(e,t,r){this._$AK(e,r)}_$ET(e,t){const r=this.constructor.elementProperties.get(e),i=this.constructor._$Eu(e,r);if(i!==void 0&&r.reflect===!0){const o=(r.converter?.toAttribute!==void 0?r.converter:O).toAttribute(t,r.type);this._$Em=e,o==null?this.removeAttribute(i):this.setAttribute(i,o),this._$Em=null}}_$AK(e,t){const r=this.constructor,i=r._$Eh.get(e);if(i!==void 0&&this._$Em!==i){const o=r.getPropertyOptions(i),s=typeof o.converter=="function"?{fromAttribute:o.converter}:o.converter?.fromAttribute!==void 0?o.converter:O;this._$Em=i;const l=s.fromAttribute(t,o.type);this[i]=l??this._$Ej?.get(i)??l,this._$Em=null}}requestUpdate(e,t,r,i=!1,o){if(e!==void 0){const s=this.constructor;if(i===!1&&(o=this[e]),r??=s.getPropertyOptions(e),!((r.hasChanged??oe)(o,t)||r.useDefault&&r.reflect&&o===this._$Ej?.get(e)&&!this.hasAttribute(s._$Eu(e,r))))return;this.C(e,t,r)}this.isUpdatePending===!1&&(this._$ES=this._$EP())}C(e,t,{useDefault:r,reflect:i,wrapped:o},s){r&&!(this._$Ej??=new Map).has(e)&&(this._$Ej.set(e,s??t??this[e]),o!==!0||s!==void 0)||(this._$AL.has(e)||(this.hasUpdated||r||(t=void 0),this._$AL.set(e,t)),i===!0&&this._$Em!==e&&(this._$Eq??=new Set).add(e))}async _$EP(){this.isUpdatePending=!0;try{await this._$ES}catch(t){Promise.reject(t)}const e=this.scheduleUpdate();return e!=null&&await e,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this.renderRoot??=this.createRenderRoot(),this._$Ep){for(const[i,o]of this._$Ep)this[i]=o;this._$Ep=void 0}const r=this.constructor.elementProperties;if(r.size>0)for(const[i,o]of r){const{wrapped:s}=o,l=this[i];s!==!0||this._$AL.has(i)||l===void 0||this.C(i,void 0,o,l)}}let e=!1;const t=this._$AL;try{e=this.shouldUpdate(t),e?(this.willUpdate(t),this._$EO?.forEach(r=>r.hostUpdate?.()),this.update(t)):this._$EM()}catch(r){throw e=!1,this._$EM(),r}e&&this._$AE(t)}willUpdate(e){}_$AE(e){this._$EO?.forEach(t=>t.hostUpdated?.()),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(e)),this.updated(e)}_$EM(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$ES}shouldUpdate(e){return!0}update(e){this._$Eq&&=this._$Eq.forEach(t=>this._$ET(t,this[t])),this._$EM()}updated(e){}firstUpdated(e){}};E.elementStyles=[],E.shadowRootOptions={mode:"open"},E[C("elementProperties")]=new Map,E[C("finalized")]=new Map,ve?.({ReactiveElement:E}),(H.reactiveElementVersions??=[]).push("2.1.2");const I=globalThis,F=n=>n,j=I.trustedTypes,K=j?j.createPolicy("lit-html",{createHTML:n=>n}):void 0,ne="$lit$",y=`lit$${Math.random().toFixed(9).slice(2)}$`,se="?"+y,ye=`<${se}>`,$=document,P=()=>$.createComment(""),T=n=>n===null||typeof n!="object"&&typeof n!="function",W=Array.isArray,we=n=>W(n)||typeof n?.[Symbol.iterator]=="function",U=`[ 	
+\f\r]`,S=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,Z=/-->/g,J=/>/g,w=RegExp(`>|${U}(?:([^\\s"'>=/]+)(${U}*=${U}*(?:[^ 	
+\f\r"'\`<>=]|("|')|))|$)`,"g"),Q=/'/g,ee=/"/g,ae=/^(?:script|style|textarea|title)$/i,xe=n=>(e,...t)=>({_$litType$:n,strings:e,values:t}),u=xe(1),_=Symbol.for("lit-noChange"),m=Symbol.for("lit-nothing"),te=new WeakMap,x=$.createTreeWalker($,129);function le(n,e){if(!W(n)||!n.hasOwnProperty("raw"))throw Error("invalid template strings array");return K!==void 0?K.createHTML(e):e}const $e=(n,e)=>{const t=n.length-1,r=[];let i,o=e===2?"<svg>":e===3?"<math>":"",s=S;for(let l=0;l<t;l++){const d=n[l];let c,h,a=-1,p=0;for(;p<d.length&&(s.lastIndex=p,h=s.exec(d),h!==null);)p=s.lastIndex,s===S?h[1]==="!--"?s=Z:h[1]!==void 0?s=J:h[2]!==void 0?(ae.test(h[2])&&(i=RegExp("</"+h[2],"g")),s=w):h[3]!==void 0&&(s=w):s===w?h[0]===">"?(s=i??S,a=-1):h[1]===void 0?a=-2:(a=s.lastIndex-h[2].length,c=h[1],s=h[3]===void 0?w:h[3]==='"'?ee:Q):s===ee||s===Q?s=w:s===Z||s===J?s=S:(s=w,i=void 0);const b=s===w&&n[l+1].startsWith("/>")?" ":"";o+=s===S?d+ye:a>=0?(r.push(c),d.slice(0,a)+ne+d.slice(a)+y+b):d+y+(a===-2?l:b)}return[le(n,o+(n[t]||"<?>")+(e===2?"</svg>":e===3?"</math>":"")),r]};class z{constructor({strings:e,_$litType$:t},r){let i;this.parts=[];let o=0,s=0;const l=e.length-1,d=this.parts,[c,h]=$e(e,t);if(this.el=z.createElement(c,r),x.currentNode=this.el.content,t===2||t===3){const a=this.el.content.firstChild;a.replaceWith(...a.childNodes)}for(;(i=x.nextNode())!==null&&d.length<l;){if(i.nodeType===1){if(i.hasAttributes())for(const a of i.getAttributeNames())if(a.endsWith(ne)){const p=h[s++],b=i.getAttribute(a).split(y),k=/([.?@])?(.*)/.exec(p);d.push({type:1,index:o,name:k[2],strings:b,ctor:k[1]==="."?Ee:k[1]==="?"?_e:k[1]==="@"?Ae:R}),i.removeAttribute(a)}else a.startsWith(y)&&(d.push({type:6,index:o}),i.removeAttribute(a));if(ae.test(i.tagName)){const a=i.textContent.split(y),p=a.length-1;if(p>0){i.textContent=j?j.emptyScript:"";for(let b=0;b<p;b++)i.append(a[b],P()),x.nextNode(),d.push({type:2,index:++o});i.append(a[p],P())}}}else if(i.nodeType===8)if(i.data===se)d.push({type:2,index:o});else{let a=-1;for(;(a=i.data.indexOf(y,a+1))!==-1;)d.push({type:7,index:o}),a+=y.length-1}o++}}static createElement(e,t){const r=$.createElement("template");return r.innerHTML=e,r}}function A(n,e,t=n,r){if(e===_)return e;let i=r!==void 0?t._$Co?.[r]:t._$Cl;const o=T(e)?void 0:e._$litDirective$;return i?.constructor!==o&&(i?._$AO?.(!1),o===void 0?i=void 0:(i=new o(n),i._$AT(n,t,r)),r!==void 0?(t._$Co??=[])[r]=i:t._$Cl=i),i!==void 0&&(e=A(n,i._$AS(n,e.values),i,r)),e}class ke{constructor(e,t){this._$AV=[],this._$AN=void 0,this._$AD=e,this._$AM=t}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(e){const{el:{content:t},parts:r}=this._$AD,i=(e?.creationScope??$).importNode(t,!0);x.currentNode=i;let o=x.nextNode(),s=0,l=0,d=r[0];for(;d!==void 0;){if(s===d.index){let c;d.type===2?c=new B(o,o.nextSibling,this,e):d.type===1?c=new d.ctor(o,d.name,d.strings,this,e):d.type===6&&(c=new Se(o,this,e)),this._$AV.push(c),d=r[++l]}s!==d?.index&&(o=x.nextNode(),s++)}return x.currentNode=$,i}p(e){let t=0;for(const r of this._$AV)r!==void 0&&(r.strings!==void 0?(r._$AI(e,r,t),t+=r.strings.length-2):r._$AI(e[t])),t++}}class B{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(e,t,r,i){this.type=2,this._$AH=m,this._$AN=void 0,this._$AA=e,this._$AB=t,this._$AM=r,this.options=i,this._$Cv=i?.isConnected??!0}get parentNode(){let e=this._$AA.parentNode;const t=this._$AM;return t!==void 0&&e?.nodeType===11&&(e=t.parentNode),e}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(e,t=this){e=A(this,e,t),T(e)?e===m||e==null||e===""?(this._$AH!==m&&this._$AR(),this._$AH=m):e!==this._$AH&&e!==_&&this._(e):e._$litType$!==void 0?this.$(e):e.nodeType!==void 0?this.T(e):we(e)?this.k(e):this._(e)}O(e){return this._$AA.parentNode.insertBefore(e,this._$AB)}T(e){this._$AH!==e&&(this._$AR(),this._$AH=this.O(e))}_(e){this._$AH!==m&&T(this._$AH)?this._$AA.nextSibling.data=e:this.T($.createTextNode(e)),this._$AH=e}$(e){const{values:t,_$litType$:r}=e,i=typeof r=="number"?this._$AC(e):(r.el===void 0&&(r.el=z.createElement(le(r.h,r.h[0]),this.options)),r);if(this._$AH?._$AD===i)this._$AH.p(t);else{const o=new ke(i,this),s=o.u(this.options);o.p(t),this.T(s),this._$AH=o}}_$AC(e){let t=te.get(e.strings);return t===void 0&&te.set(e.strings,t=new z(e)),t}k(e){W(this._$AH)||(this._$AH=[],this._$AR());const t=this._$AH;let r,i=0;for(const o of e)i===t.length?t.push(r=new B(this.O(P()),this.O(P()),this,this.options)):r=t[i],r._$AI(o),i++;i<t.length&&(this._$AR(r&&r._$AB.nextSibling,i),t.length=i)}_$AR(e=this._$AA.nextSibling,t){for(this._$AP?.(!1,!0,t);e!==this._$AB;){const r=F(e).nextSibling;F(e).remove(),e=r}}setConnected(e){this._$AM===void 0&&(this._$Cv=e,this._$AP?.(e))}}class R{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(e,t,r,i,o){this.type=1,this._$AH=m,this._$AN=void 0,this.element=e,this.name=t,this._$AM=i,this.options=o,r.length>2||r[0]!==""||r[1]!==""?(this._$AH=Array(r.length-1).fill(new String),this.strings=r):this._$AH=m}_$AI(e,t=this,r,i){const o=this.strings;let s=!1;if(o===void 0)e=A(this,e,t,0),s=!T(e)||e!==this._$AH&&e!==_,s&&(this._$AH=e);else{const l=e;let d,c;for(e=o[0],d=0;d<o.length-1;d++)c=A(this,l[r+d],t,d),c===_&&(c=this._$AH[d]),s||=!T(c)||c!==this._$AH[d],c===m?e=m:e!==m&&(e+=(c??"")+o[d+1]),this._$AH[d]=c}s&&!i&&this.j(e)}j(e){e===m?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,e??"")}}class Ee extends R{constructor(){super(...arguments),this.type=3}j(e){this.element[this.name]=e===m?void 0:e}}class _e extends R{constructor(){super(...arguments),this.type=4}j(e){this.element.toggleAttribute(this.name,!!e&&e!==m)}}class Ae extends R{constructor(e,t,r,i,o){super(e,t,r,i,o),this.type=5}_$AI(e,t=this){if((e=A(this,e,t,0)??m)===_)return;const r=this._$AH,i=e===m&&r!==m||e.capture!==r.capture||e.once!==r.once||e.passive!==r.passive,o=e!==m&&(r===m||i);i&&this.element.removeEventListener(this.name,this,r),o&&this.element.addEventListener(this.name,this,e),this._$AH=e}handleEvent(e){typeof this._$AH=="function"?this._$AH.call(this.options?.host??this.element,e):this._$AH.handleEvent(e)}}class Se{constructor(e,t,r){this.element=e,this.type=6,this._$AN=void 0,this._$AM=t,this.options=r}get _$AU(){return this._$AM._$AU}_$AI(e){A(this,e)}}const Ce=I.litHtmlPolyfillSupport;Ce?.(z,B),(I.litHtmlVersions??=[]).push("3.3.2");const Pe=(n,e,t)=>{const r=t?.renderBefore??e;let i=r._$litPart$;if(i===void 0){const o=t?.renderBefore??null;r._$litPart$=i=new B(e.insertBefore(P(),o),o,void 0,t??{})}return i._$AI(n),i};const Y=globalThis;class f extends E{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){const e=super.createRenderRoot();return this.renderOptions.renderBefore??=e.firstChild,e}update(e){const t=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(e),this._$Do=Pe(t,this.renderRoot,this.renderOptions)}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0)}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1)}render(){return _}}f._$litElement$=!0,f.finalized=!0,Y.litElementHydrateSupport?.({LitElement:f});const Te=Y.litElementPolyfillSupport;Te?.({LitElement:f});(Y.litElementVersions??=[]).push("4.2.2");const ze=v`
     :host {
         --background: #0f172a;
         --card: #1e293b;
@@ -357,17 +357,17 @@
             border-width: 0.375rem;
         }
     }
-`;class ze{constructor(){this.sounds={},this.enabled=this.loadEnabledState(),this.volume=.7,this.loadSounds()}loadEnabledState(){const e=localStorage.getItem("soundEnabled");return e===null?!0:e==="true"}saveEnabledState(){localStorage.setItem("soundEnabled",this.enabled.toString())}loadSounds(){this.loadAudioFile("click","/sounds/click.wav"),this.loadAudioFile("tick","/sounds/tick.wav"),this.loadAudioFile("win","/sounds/win.wav"),this.loadAudioFile("check","/sounds/check.mp3"),this.loadAudioFile("uncheck","/sounds/uncheck.mp3")}loadAudioFile(e,t){const r=new Audio(t);r.volume=this.volume,r.preload="auto",r.setAttribute("controlsList","nodownload"),r.setAttribute("disablepictureinpicture",""),r.removeAttribute("controls"),r.addEventListener("error",i=>{console.error(`❌ Failed to load sound "${e}" from ${t}`),console.error("Error details:",{error:i,src:r.src,networkState:r.networkState,readyState:r.readyState})}),this.sounds[e]=()=>{if(!this.enabled)return;const i=r.cloneNode();i.volume=this.volume,i.setAttribute("controlsList","nodownload"),i.setAttribute("disablepictureinpicture",""),i.removeAttribute("controls"),i.play().catch(n=>console.log("Audio play failed:",n)),i.addEventListener("ended",()=>{i.remove()})}}play(e){this.sounds[e]&&this.sounds[e]()}toggle(){return this.enabled=!this.enabled,this.saveEnabledState(),window.dispatchEvent(new CustomEvent("sound-toggled",{detail:{enabled:this.enabled}})),this.enabled}setVolume(e){this.volume=Math.max(0,Math.min(1,e))}isEnabled(){return this.enabled}}const g=new ze;class Be extends f{static styles=[je];static properties={items:{type:Array},marked:{type:Set},difficulty:{type:String},hasWon:{type:Boolean},longPressIndex:{type:Number},longPressTimer:{type:Number,state:!0},wasLongPress:{type:Boolean,state:!0}};constructor(){super(),this.items=[],this.marked=new Set([12]),this.difficulty="single",this.hasWon=!1,this.longPressIndex=null,this.longPressTimer=null,this.wasLongPress=!1}async firstUpdated(){await this.loadItems()}async loadItems(){try{const t=await(await fetch(new URL("/assets/temp-CBYr-4HC.json",import.meta.url))).json(),r=this.getRandomItems(t.easy,10),i=this.getRandomItems(t.medium,10),n=this.getRandomItems(t.hard,4),s=[...r,...i,...n],l=this.shuffleArray(s);l.splice(12,0,{title:"Gratis",description:"Gratis vakje!"}),this.items=l}catch(e){console.error("Failed to load bingo items:",e)}}getRandomItems(e,t){return!e||e.length===0?(console.warn("Array is empty or undefined"),[]):e.length<=t?[...e]:this.shuffleArray([...e]).slice(0,t)}shuffleArray(e){const t=[...e];for(let r=t.length-1;r>0;r--){const i=Math.floor(Math.random()*(r+1));[t[r],t[i]]=[t[i],t[r]]}return t}reset(){this.marked=new Set([12]),this.hasWon=!1,this.loadItems(),this.requestUpdate()}getTooltipClass(e){const t=e%5;return t===0?"tooltip-left":t===1?"tooltip-left-center":t===3?"tooltip-right-center":t===4?"tooltip-right":"tooltip-center"}handlePressStart(e,t){e!==12&&(this.wasLongPress=!1,this.longPressTimer=setTimeout(()=>{this.wasLongPress=!0,this.longPressIndex=e,this.requestUpdate()},150))}handlePressEnd(e,t){e!==12&&(this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),setTimeout(()=>{this.longPressIndex=null,this.wasLongPress=!1,this.requestUpdate()},50))}handlePressMove(){this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),this.longPressIndex=null,this.wasLongPress=!1,this.requestUpdate()}toggleSquare(e,t){if(e!==12){if(this.wasLongPress){t.preventDefault();return}this.marked.has(e)?(this.marked.delete(e),g.play("uncheck")):(this.marked.add(e),g.play("check")),this.requestUpdate(),this.checkWin()}}checkWin(){const e=this.hasValidBingo();e&&!this.hasWon&&(this.hasWon=!0,g.play("win"),this.announceWin()),!e&&this.hasWon&&(this.hasWon=!1)}hasValidBingo(){let e=0;switch(this.difficulty){case"single":e=1;break;case"double":e=2;break;case"full":return this.marked.size===25}let t=0;for(let n=0;n<5;n++)[n*5,n*5+1,n*5+2,n*5+3,n*5+4].every(l=>this.marked.has(l))&&t++;for(let n=0;n<5;n++)[n,n+5,n+10,n+15,n+20].every(l=>this.marked.has(l))&&t++;const r=[0,6,12,18,24],i=[4,8,12,16,20];return r.every(n=>this.marked.has(n))&&t++,i.every(n=>this.marked.has(n))&&t++,t>=e}announceWin(){this.dispatchEvent(new CustomEvent("win",{bubbles:!0,composed:!0}))}render(){return u`
+`;class Be{constructor(){this.sounds={},this.enabled=this.loadEnabledState(),this.volume=.7,this.loadSounds()}loadEnabledState(){const e=localStorage.getItem("soundEnabled");return e===null?!0:e==="true"}saveEnabledState(){localStorage.setItem("soundEnabled",this.enabled.toString())}loadSounds(){this.loadAudioFile("click","/sounds/click.wav"),this.loadAudioFile("tick","/sounds/tick.wav"),this.loadAudioFile("win","/sounds/win.wav"),this.loadAudioFile("check","/sounds/check.mp3"),this.loadAudioFile("uncheck","/sounds/uncheck.mp3")}loadAudioFile(e,t){const r=new Audio(t);r.volume=this.volume,r.preload="auto",r.setAttribute("controlsList","nodownload"),r.setAttribute("disablepictureinpicture",""),r.removeAttribute("controls"),r.addEventListener("error",i=>{console.error(`❌ Failed to load sound "${e}" from ${t}`),console.error("Error details:",{error:i,src:r.src,networkState:r.networkState,readyState:r.readyState})}),this.sounds[e]=()=>{if(!this.enabled)return;const i=r.cloneNode();i.volume=this.volume,i.setAttribute("controlsList","nodownload"),i.setAttribute("disablepictureinpicture",""),i.removeAttribute("controls"),i.play().catch(o=>console.log("Audio play failed:",o)),i.addEventListener("ended",()=>{i.remove()})}}play(e){this.sounds[e]&&this.sounds[e]()}toggle(){return this.enabled=!this.enabled,this.saveEnabledState(),window.dispatchEvent(new CustomEvent("sound-toggled",{detail:{enabled:this.enabled}})),this.enabled}setVolume(e){this.volume=Math.max(0,Math.min(1,e))}isEnabled(){return this.enabled}}const g=new Be;class Me extends f{static styles=[ze];static properties={items:{type:Array},marked:{type:Set},difficulty:{type:String},hasWon:{type:Boolean},longPressIndex:{type:Number},longPressTimer:{type:Number,state:!0},wasLongPress:{type:Boolean,state:!0}};constructor(){super(),this.items=[],this.marked=new Set([12]),this.difficulty="single",this.hasWon=!1,this.longPressIndex=null,this.longPressTimer=null,this.wasLongPress=!1}async firstUpdated(){await this.loadItems()}async loadItems(){try{const t=await(await fetch(new URL("/assets/temp-CBYr-4HC.json",import.meta.url))).json(),r=this.getRandomItems(t.easy,10),i=this.getRandomItems(t.medium,10),o=this.getRandomItems(t.hard,4),s=[...r,...i,...o],l=this.shuffleArray(s);l.splice(12,0,{title:"Gratis",description:"Gratis vakje!"}),this.items=l}catch(e){console.error("Failed to load bingo items:",e)}}getRandomItems(e,t){return!e||e.length===0?(console.warn("Array is empty or undefined"),[]):e.length<=t?[...e]:this.shuffleArray([...e]).slice(0,t)}shuffleArray(e){const t=[...e];for(let r=t.length-1;r>0;r--){const i=Math.floor(Math.random()*(r+1));[t[r],t[i]]=[t[i],t[r]]}return t}reset(){this.marked=new Set([12]),this.hasWon=!1,this.loadItems(),this.requestUpdate()}getTooltipClass(e){const t=e%5;return t===0?"tooltip-left":t===1?"tooltip-left-center":t===3?"tooltip-right-center":t===4?"tooltip-right":"tooltip-center"}handlePressStart(e,t){e!==12&&(this.wasLongPress=!1,this.longPressTimer=setTimeout(()=>{this.wasLongPress=!0,this.longPressIndex=e,this.requestUpdate()},150))}handlePressEnd(e,t){e!==12&&(this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),setTimeout(()=>{this.longPressIndex=null,this.wasLongPress=!1,this.requestUpdate()},50))}handlePressMove(){this.longPressTimer&&(clearTimeout(this.longPressTimer),this.longPressTimer=null),this.longPressIndex=null,this.wasLongPress=!1,this.requestUpdate()}toggleSquare(e,t){if(e!==12){if(this.wasLongPress){t.preventDefault();return}this.marked.has(e)?(this.marked.delete(e),g.play("uncheck")):(this.marked.add(e),g.play("check")),this.requestUpdate(),this.checkWin()}}checkWin(){const e=this.hasValidBingo();e&&!this.hasWon&&(this.hasWon=!0,g.play("win"),this.announceWin()),!e&&this.hasWon&&(this.hasWon=!1)}hasValidBingo(){let e=0;switch(this.difficulty){case"single":e=1;break;case"double":e=2;break;case"full":return this.marked.size===25}let t=0;for(let o=0;o<5;o++)[o*5,o*5+1,o*5+2,o*5+3,o*5+4].every(l=>this.marked.has(l))&&t++;for(let o=0;o<5;o++)[o,o+5,o+10,o+15,o+20].every(l=>this.marked.has(l))&&t++;const r=[0,6,12,18,24],i=[4,8,12,16,20];return r.every(o=>this.marked.has(o))&&t++,i.every(o=>this.marked.has(o))&&t++,t>=e}announceWin(){this.dispatchEvent(new CustomEvent("win",{bubbles:!0,composed:!0}))}render(){return u`
             <section>
-                ${this.items.map((e,t)=>{const r=this.marked.has(t),i=t===12,n=this.longPressIndex===t,s=typeof e=="string"?e:e.title,l=typeof e=="string"?"":e.description,d=this.getTooltipClass(t);return u`
+                ${this.items.map((e,t)=>{const r=this.marked.has(t),i=t===12,o=this.longPressIndex===t,s=typeof e=="string"?e:e.title,l=typeof e=="string"?"":e.description,d=this.getTooltipClass(t);return u`
                         <div class="tile-container">
-                            ${n&&l?u`
+                            ${o&&l?u`
                                 <div class="tooltip ${d}">
                                     ${l}
                                 </div>
                             `:""}
                             <button
-                                    class="tile ${i?"free":""} ${r?"marked":""} ${n?"long-pressing":""}"
+                                    class="tile ${i?"free":""} ${r?"marked":""} ${o?"long-pressing":""}"
                                     @click=${c=>this.toggleSquare(t,c)}
                                     @mousedown=${c=>this.handlePressStart(t,c)}
                                     @mouseup=${c=>this.handlePressEnd(t,c)}
@@ -390,7 +390,7 @@
                         </div>
                     `})}
             </section>
-        `}}customElements.define("bingo-grid",Be);const Me=v`
+        `}}customElements.define("bingo-grid",Me);const je=v`
     :host {
         --card: #1e293b;
         --foreground: #f1f5f9;
@@ -456,10 +456,18 @@
         }
     }
 
+    h1 {
+        color: var(--foreground);
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem 0;
+        text-align: center;
+    }
+
     h2 {
         color: var(--foreground);
-        font-size: 1.875rem;
-        font-weight: 600;
+        font-size: 1rem;
+        font-weight: 400;
         margin: 0 0 0.5rem 0;
         text-align: center;
     }
@@ -691,11 +699,12 @@
         opacity: 0.9;
         transform: scale(0.98);
     }
-`;class He extends f{static styles=[Me,D];static properties={pressingButton:{type:String,state:!0}};constructor(){super(),this.pressingButton=null}selectDifficulty(e){g.play("click"),this.dispatchEvent(new CustomEvent("difficulty-selected",{detail:{difficulty:e},bubbles:!0,composed:!0}))}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return u`
+`;class He extends f{static styles=[je,D];static properties={pressingButton:{type:String,state:!0}};constructor(){super(),this.pressingButton=null}selectDifficulty(e){g.play("click"),this.dispatchEvent(new CustomEvent("difficulty-selected",{detail:{difficulty:e},bubbles:!0,composed:!0}))}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return u`
             <div class="backdrop">
-                <div class="modal">
-                    <h2>Kies je moeilijkheidsgraad</h2>
-                    <p class="subtitle">Selecteer hoe je wilt spelen</p>
+                <div class="modal" data-nosnippet>
+                    <h1>Welcome to DnD Bingo</h1>
+                    
+                    <h2 class="subtitle">Choose your difficulty to start the game</h2>
 
                     <div class="buttons">
                         <button
@@ -725,8 +734,8 @@
                                     <circle cx="22" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                 </svg>
                             </div>
-                            <span class="title">Enkele Rij</span>
-                            <span class="description">Win door 1 rij horizontaal, verticaal of diagonaal helemaal af te vinken</span>
+                            <span class="title">Single Row</span>
+                            <span class="description">Win by ticking off 1 row horizontally, vertically or diagonally</span>
                         </button>
 
                         <button
@@ -756,8 +765,8 @@
                                     <circle cx="22" cy="22" r="2.5" fill="rgba(255, 255, 255, 0.3)"/>
                                 </svg>
                             </div>
-                            <span class="title">Dubbele Rij</span>
-                            <span class="description">Win door 2 rijen horizontaal, verticaal of diagonaal helemaal af te vinken</span>
+                            <span class="title">Double Row</span>
+                            <span class="description">Win by ticking off 2 rows horizontally, vertically or diagonally</span>
                         </button>
 
                         <button
@@ -785,8 +794,8 @@
                                     <circle cx="22" cy="22" r="2.5" fill="white"/>
                                 </svg>
                             </div>
-                            <span class="title">Volle Kaart</span>
-                            <span class="description">Win door alle vakjes op de kaart af te vinken</span>
+                            <span class="title">Full Card</span>
+                            <span class="description">Win by checking off all the boxes on the card</span>
                         </button>
                     </div>
                 </div>
@@ -850,9 +859,9 @@
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
-                <span>Probeer Opnieuw</span>
+                <span>Try Again</span>
             </button>
-        `}}customElements.define("reset-button",De);const Oe=v`
+        `}}customElements.define("reset-button",De);const Ue=v`
     :host {
         --card: #1e293b;
         --foreground: #f1f5f9;
@@ -973,11 +982,11 @@
             justify-content: flex-end;
         }
     }
-`;class Ue extends f{static styles=[Oe,D];static properties={open:{type:Boolean},pressingButton:{type:String,state:!0}};constructor(){super(),this.open=!1,this.pressingButton=null}handleConfirm(){g.play("click"),this.dispatchEvent(new CustomEvent("confirm",{detail:{confirmed:!0},bubbles:!0,composed:!0}))}handleCancel(){g.play("click"),this.dispatchEvent(new CustomEvent("cancel",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleCancel()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return this.open?u`
+`;class Oe extends f{static styles=[Ue,D];static properties={open:{type:Boolean},pressingButton:{type:String,state:!0}};constructor(){super(),this.open=!1,this.pressingButton=null}handleConfirm(){g.play("click"),this.dispatchEvent(new CustomEvent("confirm",{detail:{confirmed:!0},bubbles:!0,composed:!0}))}handleCancel(){g.play("click"),this.dispatchEvent(new CustomEvent("cancel",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleCancel()}handleTouchStart(e){this.pressingButton=e}handleTouchEnd(){this.pressingButton=null}render(){return this.open?u`
       <div class="backdrop" @click=${this.handleBackdropClick}>
         <div class="modal">
-          <h3>Weet je het zeker?</h3>
-          <p>Je huidige voortgang gaat verloren en het spel wordt gereset.</p>
+          <h3>Are you sure?</h3>
+          <p>Your current progress will be lost and the game will reset.</p>
           
           <div class="buttons">
             <button 
@@ -988,7 +997,7 @@
                 @touchmove=${this.handleTouchEnd}
                 @contextmenu=${e=>e.preventDefault()}
             >
-                Nee, annuleren
+                No, cancel
             </button>
             <button 
                 class="btn btn-confirm touch-interactive ${this.pressingButton==="confirm"?"pressing":""}"
@@ -998,12 +1007,12 @@
                 @touchmove=${this.handleTouchEnd}
                 @contextmenu=${e=>e.preventDefault()}
             >
-                Ja, opnieuw beginnen
+                Yes, start over
             </button>
           </div>
         </div>
       </div>
-    `:u``}}customElements.define("confirmation-modal",Ue);const Le=v`
+    `:u``}}customElements.define("confirmation-modal",Oe);const Le=v`
     :host {
         --card: #1e293b;
         --foreground: #f1f5f9;
@@ -1221,7 +1230,7 @@
                     </div>
                     
                     <h2>BINGO!</h2>
-                    <p class="congrats">Gefeliciteerd! Je hebt gewonnen!</p>
+                    <p class="congrats">Congratulations! You won!</p>
                     
                     <div class="buttons">
                         <button 
@@ -1236,7 +1245,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
-                            <span>Bekijk Kaart</span>
+                            <span>Open Card</span>
                         </button>
                         <button 
                             class="btn btn-play-again touch-interactive ${this.pressingButton==="play-again"?"pressing":""}"
@@ -1249,7 +1258,7 @@
                             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                             </svg>
-                            <span>Opnieuw Spelen</span>
+                            <span>Play Again</span>
                         </button>
                     </div>
                 </div>
@@ -1829,79 +1838,30 @@
             height: 20rem;
         }
     }
-`;class Xe extends f{static styles=Ve;static properties={open:{type:Boolean},currentPage:{type:Number,state:!0},touchStartX:{type:Number,state:!0},touchEndX:{type:Number,state:!0}};constructor(){super(),this.open=!1,this.currentPage=0,this.pages=["intro","what-are-dashcams","rules","how-to-play","where-to-find"],this.touchStartX=0,this.touchEndX=0}updated(e){e.has("open")&&this.open&&(this.currentPage=0)}handleClose(){g.play("click"),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleClose()}nextPage(){g.play("click"),this.currentPage<this.pages.length-1&&this.currentPage++}prevPage(){g.play("click"),this.currentPage>0&&this.currentPage--}handleTouchStart(e){this.touchStartX=e.changedTouches[0].screenX}handleTouchEnd(e){this.touchEndX=e.changedTouches[0].screenX,this.handleSwipe()}handleSwipe(){const t=this.touchStartX-this.touchEndX;Math.abs(t)>75&&(t>0?this.nextPage():this.prevPage())}renderPage(){switch(this.pages[this.currentPage]){case"intro":return u`
+`;class Xe extends f{static styles=Ve;static properties={open:{type:Boolean},currentPage:{type:Number,state:!0},touchStartX:{type:Number,state:!0},touchEndX:{type:Number,state:!0}};constructor(){super(),this.open=!1,this.currentPage=0,this.pages=["intro","rules"],this.touchStartX=0,this.touchEndX=0}updated(e){e.has("open")&&this.open&&(this.currentPage=0)}handleClose(){g.play("click"),this.dispatchEvent(new CustomEvent("close",{bubbles:!0,composed:!0}))}handleBackdropClick(e){e.target===e.currentTarget&&this.handleClose()}nextPage(){g.play("click"),this.currentPage<this.pages.length-1&&this.currentPage++}prevPage(){g.play("click"),this.currentPage>0&&this.currentPage--}handleTouchStart(e){this.touchStartX=e.changedTouches[0].screenX}handleTouchEnd(e){this.touchEndX=e.changedTouches[0].screenX,this.handleSwipe()}handleSwipe(){const t=this.touchStartX-this.touchEndX;Math.abs(t)>75&&(t>0?this.nextPage():this.prevPage())}renderPage(){switch(this.pages[this.currentPage]){case"intro":return u`
                     <section>
-                        <h3>Het doel</h3>
-                        <p>Spot situaties tijdens het kijken van een dashcam video en vink ze af op je bingo kaart. Speel alleen of samen met vrienden/familie en probeer als eerste <strong>BINGO</strong> te krijgen!</p>
-                    </section>
-                `;case"what-are-dashcams":return u`
-                    <section>
-                        <h3>Wat zijn dashcam videos?</h3>
-                        <p>Veel mensen gebruiken tijdens het rijden een dashcam. Hiermee kunnen opvallende situaties op beeld worden gebracht. Op YouTube zijn videos waar deze dashcam videos in een compilatie worden gezet.</p>
+                        <h3>What is DnD Bingo?</h3>
+                        <p>DnD Bingo is supposed to be played while in a DnD session.</p>
+                        <br>
+                        <p>Pay attention during your DnD session and cross events off your bingo card.</p>
+                        <br>
+                        <p>When you get <strong>Bingo</strong> you win.</p>
                     </section>
                 `;case"rules":return u`
                     <section>
-                        <h3>Spelregels</h3>
+                        <h3>Rules</h3>
                         <ol>
-                            <li><strong>Kies je moeilijkheidsgraad:</strong>
+                            <li><strong>Choose your difficulty:</strong>
                                 <ul>
-                                    <li><span class="badge green">I</span> Enkele Rij - 1 rij voor bingo</li>
-                                    <li><span class="badge orange">II</span> Dubbele Rij - 2 rijen voor bingo</li>
-                                    <li><span class="badge red">III</span> Volle Kaart - Alle vakjes voor bingo</li>
+                                    <li><span class="badge green">I</span> Single Row - 1 row to get bingo</li>
+                                    <li><span class="badge orange">II</span> Double Row - 2 rows to get bingo</li>
+                                    <li><span class="badge red">III</span> Full Card - All boxes to get bingo</li>
                                 </ul>
                             </li>
-                            <li><strong>Zet een dashcam video aan</strong> op een ander apparaat</li>
-                            <li><strong>Let op in dashcam videos</strong> naar de situaties op je kaart</li>
-                            <li><strong>Tik op een vakje</strong> als je die situatie spot</li>
-                            <li><strong>Win!</strong> wanneer je het doel hebt gehaald</li>
+                            <li><strong>Start a DnD session</li>
+                            <li><strong>Pay attention and cross off events from your card</li>
+                            <li><strong>Bingo!</strong> when you reach your difficulty goal</li>
                         </ol>
-                    </section>
-                `;case"how-to-play":return u`
-                    <section>
-                        <h3>Hoe gebruik ik deze app?</h3>
-                        <p>- Klik op een vakje om hem af te vinken.</p> 
-                        <p>- Houd een vakje ingedrukt om een beschrijving te zien over wat er in het vakje staat.</p> 
-                        <p>- Druk op "Probeer Opnieuw" om de bingokaart leeg te maken en een nieuwe te genereren.</p>
-                        <p>- Druk rechtsboven in de pagina op het geluidsicoontje om de geluidseffecten van de applicatie aan of uit te zetten.</p>
-                    </section>
-                `;case"where-to-find":return u`
-                    <section>
-                        <h3>Waar vind ik dashcam videos?</h3>
-                        <p>Zoek op YouTube naar "dashcam videos" of "dashcam compilatie", of kijk een video van een van de kanalen hieronder:</p>
-                        <ul class="link-list">
-                            <li>
-                                <a href="https://www.youtube.com/@Dashcam-Nederland" target="_blank" rel="noopener noreferrer">
-                                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                                    </svg>
-                                    Dashcam Nederland
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/@DutchDashcam" target="_blank" rel="noopener noreferrer">
-                                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                                    </svg>
-                                    Dutch Dashcam
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/playlist?list=PLMe_6SSHyqcY0-mRCiQseShc4uY3KPPYt" target="_blank" rel="noopener noreferrer">
-                                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                                    </svg>
-                                    Dumpert Dashcam Playlist
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/@DASHCAMIDIOTSNEDERLAND/featured" target="_blank" rel="noopener noreferrer">
-                                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                                    </svg>
-                                    Dashcam Idiots Nederland
-                                </a>
-                            </li>
-                        </ul>
                     </section>
                 `}}render(){return this.open?u`
             <div class="backdrop" @click=${this.handleBackdropClick}>
@@ -1918,7 +1878,7 @@
                         </svg>
                     </div>
 
-                    <h2>Hoe speel je Dashcam Bingo?</h2>
+                    <h2>DnD Bingo explained</h2>
 
                     <div 
                         class="content"
@@ -1933,7 +1893,7 @@
                             class="nav-btn" 
                             @click=${this.prevPage}
                             ?disabled=${this.currentPage===0}
-                            aria-label="Vorige pagina"
+                            aria-label="Previous page"
                         >
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -1950,7 +1910,7 @@
                             class="nav-btn" 
                             @click=${this.nextPage}
                             ?disabled=${this.currentPage===this.pages.length-1}
-                            aria-label="Volgende pagina"
+                            aria-label="Next page"
                         >
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -1959,7 +1919,7 @@
                     </div>
 
                     <button class="btn-close-bottom" @click=${this.handleClose}>
-                        Begrepen, laten we spelen!
+                        Understood, let's play!
                     </button>
                 </div>
             </div>
@@ -2072,7 +2032,7 @@
             <sound-toggle></sound-toggle>
             <div class="content-wrapper">
                 <div class="title-container">
-                    <h1>Dashcam Bingo</h1>
+                    <h1>DnD Bingo</h1>
                     <div class="title-underline"></div>
                 </div>
 
@@ -2109,4 +2069,4 @@
                     @close=${this.handleCloseWinner}
                     @play-again=${this.handlePlayAgain}>
             </winner-modal>
-        `}}customElements.define("dashcam-app",Ge);const Fe="modulepreload",Ke=function(o){return"/"+o},re={},Je=function(e,t,r){let i=Promise.resolve();if(t&&t.length>0){let d=function(c){return Promise.all(c.map(h=>Promise.resolve(h).then(a=>({status:"fulfilled",value:a}),a=>({status:"rejected",reason:a}))))};document.getElementsByTagName("link");const s=document.querySelector("meta[property=csp-nonce]"),l=s?.nonce||s?.getAttribute("nonce");i=d(t.map(c=>{if(c=Ke(c),c in re)return;re[c]=!0;const h=c.endsWith(".css"),a=h?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${c}"]${a}`))return;const p=document.createElement("link");if(p.rel=h?"stylesheet":Fe,h||(p.as="script"),p.crossOrigin="",p.href=c,l&&p.setAttribute("nonce",l),document.head.appendChild(p),h)return new Promise((b,$)=>{p.addEventListener("load",b),p.addEventListener("error",()=>$(new Error(`Unable to preload CSS for ${c}`)))})}))}function n(s){const l=new Event("vite:preloadError",{cancelable:!0});if(l.payload=s,window.dispatchEvent(l),!l.defaultPrevented)throw s}return i.then(s=>{for(const l of s||[])l.status==="rejected"&&n(l.reason);return e().catch(n)})};function Ze(o={}){const{immediate:e=!1,onNeedRefresh:t,onOfflineReady:r,onRegistered:i,onRegisteredSW:n,onRegisterError:s}=o;let l,d;const c=async(a=!0)=>{await d};async function h(){if("serviceWorker"in navigator){if(l=await Je(async()=>{const{Workbox:a}=await import("./workbox-window.prod.es5-BIl4cyR9.js");return{Workbox:a}},[]).then(({Workbox:a})=>new a("/sw.js",{scope:"/",type:"classic"})).catch(a=>{s?.(a)}),!l)return;l.addEventListener("activated",a=>{(a.isUpdate||a.isExternal)&&window.location.reload()}),l.addEventListener("installed",a=>{a.isUpdate||r?.()}),l.register({immediate:e}).then(a=>{n?n("/sw.js",a):i?.(a)}).catch(a=>{s?.(a)})}}return d=h(),c}Ze({immediate:!0});window.addEventListener("beforeinstallprompt",o=>{o.preventDefault(),window.deferredPrompt=o});
+        `}}customElements.define("dnd-app",Ge);const Fe="modulepreload",Ke=function(n){return"/"+n},re={},Ze=function(e,t,r){let i=Promise.resolve();if(t&&t.length>0){let d=function(c){return Promise.all(c.map(h=>Promise.resolve(h).then(a=>({status:"fulfilled",value:a}),a=>({status:"rejected",reason:a}))))};document.getElementsByTagName("link");const s=document.querySelector("meta[property=csp-nonce]"),l=s?.nonce||s?.getAttribute("nonce");i=d(t.map(c=>{if(c=Ke(c),c in re)return;re[c]=!0;const h=c.endsWith(".css"),a=h?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${c}"]${a}`))return;const p=document.createElement("link");if(p.rel=h?"stylesheet":Fe,h||(p.as="script"),p.crossOrigin="",p.href=c,l&&p.setAttribute("nonce",l),document.head.appendChild(p),h)return new Promise((b,k)=>{p.addEventListener("load",b),p.addEventListener("error",()=>k(new Error(`Unable to preload CSS for ${c}`)))})}))}function o(s){const l=new Event("vite:preloadError",{cancelable:!0});if(l.payload=s,window.dispatchEvent(l),!l.defaultPrevented)throw s}return i.then(s=>{for(const l of s||[])l.status==="rejected"&&o(l.reason);return e().catch(o)})};function Je(n={}){const{immediate:e=!1,onNeedRefresh:t,onOfflineReady:r,onRegistered:i,onRegisteredSW:o,onRegisterError:s}=n;let l,d;const c=async(a=!0)=>{await d};async function h(){if("serviceWorker"in navigator){if(l=await Ze(async()=>{const{Workbox:a}=await import("./workbox-window.prod.es5-BIl4cyR9.js");return{Workbox:a}},[]).then(({Workbox:a})=>new a("/sw.js",{scope:"/",type:"classic"})).catch(a=>{s?.(a)}),!l)return;l.addEventListener("activated",a=>{(a.isUpdate||a.isExternal)&&window.location.reload()}),l.addEventListener("installed",a=>{a.isUpdate||r?.()}),l.register({immediate:e}).then(a=>{o?o("/sw.js",a):i?.(a)}).catch(a=>{s?.(a)})}}return d=h(),c}Je({immediate:!0});window.addEventListener("beforeinstallprompt",n=>{n.preventDefault(),window.deferredPrompt=n});
