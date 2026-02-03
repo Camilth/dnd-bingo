@@ -18,12 +18,11 @@ class SoundManager {
     }
 
     loadSounds() {
-        // Laad je eigen audio bestanden met .wav extensie
-        this.loadAudioFile('click', '/sounds/click.wav');
-        this.loadAudioFile('tick', '/sounds/tick.wav');
-        this.loadAudioFile('win', '/sounds/win.wav');
-        this.loadAudioFile('check', '/sounds/check.mp3');
-        this.loadAudioFile('uncheck', '/sounds/uncheck.mp3');
+        this.loadAudioFile('click', './sounds/click.wav');
+        this.loadAudioFile('tick', './sounds/tick.wav');
+        this.loadAudioFile('win', './sounds/win.wav');
+        this.loadAudioFile('check', './sounds/check.mp3');
+        this.loadAudioFile('uncheck', './sounds/uncheck.mp3');
     }
 
     loadAudioFile(name, url) {
